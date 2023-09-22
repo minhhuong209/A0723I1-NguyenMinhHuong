@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+</head>
+<body>
+<h1>Calculator</h1>
+<table>
+    <tr>
+        <td>
+            <input type="number" placeholder="Nhập số thứ nhất" id="sothunhat" />
+        </td>
+        <td>
+            <input type="number" placeholder="Nhập số thứ hai" id="sothuhai" />
+        </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="Cộng" onclick="add()" /></td>
+        <td><input type="button" value="Trừ" onclick="sub()" /></td>
+    </tr>
+</table>
+<br />
+<div id="cong"></div>
+<div id="tru"></div>
+<script>
+    function add() {
+        let sothunhat = parseInt(document.getElementById("sothunhat").value);
+        let sothuhai = parseInt(document.getElementById("sothuhai").value);
+        let cong = sothunhat + sothuhai;
+        document.getElementById("cong").innerText = "Result: " + cong;
+    }
+    function sub() {
+        let sothunhat = parseInt(document.getElementById("sothunhat").value);
+        let sothuhai = parseInt(document.getElementById("sothuhai").value);
+        let tru = sothunhat - sothuhai;
+        document.getElementById("tru").innerText = "Result: " + tru;
+    }
+</script>
+</body>
+</html>
