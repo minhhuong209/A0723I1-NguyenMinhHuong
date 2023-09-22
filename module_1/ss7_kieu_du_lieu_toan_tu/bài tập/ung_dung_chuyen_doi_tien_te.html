@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ứng dụng chuyển đổi tiền tệ</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><b>Amount</b></td>
+        <td></td>
+        <td></td>
+        <td><b>From Currency</b></td>
+        <td></td>
+        <td></td>
+        <td><b>To Currency</b></td>
+    </tr>
+    <tr>
+        <td><input type="number" id="sotien" /></td>
+        <td></td>
+        <td></td>
+        <td>
+            <select>
+                <option>VND</option>
+                <option>USD</option>
+            </select>
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+            <select>
+                <option>USD</option>
+                <option>VND</option>
+            </select>
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+            <input type="button" value="Convert" onclick="convert()" class="nhap"/>
+             </td>
+           </tr>
+      </table>
+      <br/>
+   <div id="result"></div>
+</body>
+</html>
+

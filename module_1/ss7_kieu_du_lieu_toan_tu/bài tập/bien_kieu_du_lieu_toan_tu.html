@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Bài tập biến, kiểu dữ liệu và toán tử</title>
+</head>
+<body>
+ <div>
+    <form action="#">
+            <h2> Trung bình môn</h2>
+
+        <div> Điểm vật lý <input type="number" id="diem vat ly" /></div>
+        <br />
+
+        <div> Điểm hóa học <input type="number" id="diem hoa hoc" /></div>
+        <br />
+
+        <div> Điểm sinh học <input type="number" id="diem sinh hoc" /></div>
+        <br />
+                    <div>
+                        <input type="button" value="Kết quả" onclick="convert()" />
+                    </div>
+                    <br />
+                    <div id="diemtrungbinh"></div>
+                    <br />
+                    <div id="diemtong"></div>
+
+        <script>
+            function convert() {
+                let vatly = +document.getElementById("diemvatly").value;
+                let hoahoc = +document.getElementById("diemhoahoc").value;
+                let sinhhoc = +document.getElementById("diemsinhhoc").value;
+                let diemtrungbinh = (vatly + hoahoc + sinhhoc) / 3;
+                let diemtong = vatly + hoahoc + sinhhoc;
+                document.getElementById("diemtrungbinh").innerText =
+                    "Điểm trung bình:" + diemtrungbinh;
+                document.getElementById("diemtong").innerText = "Điểm tổng:" + diemtong;
+            }
+                        </script>
+    </form>
+ </div>
+
+</body>
+</html>
