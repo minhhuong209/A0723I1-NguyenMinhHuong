@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính chỉ số cân nặng cơ thể</title>
+</head>
+<body>
+<script>
+    let cannang=parseInt(prompt("nhap can nang :"))
+    let chieucao = parseInt(prompt("nhap chieu cao :"))
+    bmi = cannang / (chieucao^2)
+    if (bmi<18){
+     alert("thiếu cân");
+    }else if (bmi<25){
+        alert("tương đối");
+    }else if(bmi<30){
+        alert("béo");
+    }else
+        alert("béo phì");
+
+</script>
+</body>
+</html>
