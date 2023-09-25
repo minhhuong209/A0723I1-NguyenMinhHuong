@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Ứng dụng chuyển đổi tiền tệ</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chuyển đỏi tiền tệ</title>
 </head>
 <body>
 <table>
@@ -22,8 +22,7 @@
         <td></td>
         <td>
             <select>
-                <option>VND</option>
-                <option>USD</option>
+                <option>Vnd</option>
             </select>
         </td>
         <td></td>
@@ -31,18 +30,37 @@
         <td>
             <select>
                 <option>USD</option>
-                <option>VND</option>
             </select>
         </td>
         <td></td>
         <td></td>
         <td>
-            <input type="button" value="Convert" onclick="convert()" class="nhap"/>
-             </td>
-           </tr>
-      </table>
-      <br/>
-   <div id="result"></div>
+            <input
+                    type="button"
+                    value="Convert"
+                    onclick="convert()"
+                    class="nhap"
+            />
+        </td>
+    </tr>
+</table>
+<br />
+<div id="result"></div>
 </body>
 </html>
+<style>
+    .nhap {
+        background-color: rgb(129, 76, 183);
+        color: white;
+        border: 1px solid blue;
+    }
+</style>
+<script>
+    function convert() {
+        let vnd = document.getElementById("sotien").value;
+        let usd = +(vnd * 0.00004117);
+        document.getElementById("result").innerHTML =
+            "<h3 style='color: blue'>Result: " + usd + "</h3>";
+    }
+</script>
 
