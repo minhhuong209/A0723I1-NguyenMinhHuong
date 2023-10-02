@@ -2,76 +2,142 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Máy tính đơn giản</title>
+    <title>Advanced Calculator</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .label{
+            display: inline-block;
+            font-weight: bold;
+        }
+        .display{
+            background-color: moccasin;
+            display: block;
+            width: 100%;
+            height: 40px;
+            padding: 0;
+            text-align: end;
+            border-style: ridge;
+        }
+        .btn{
+            margin: .2em;
+            width: 50px;
+            height: 40px;
+            padding: 1em auto;
+            text-align: center;
+            border-radius: 20%;
+        }
+        .btn:hover{
+            background-color: white;
+        }
+        .btn-numb{
+            background-color: ivory;
+        }
+        .btn-equal{
+            background-color: deepskyblue;
+        }
+        .btn-container{
+            width: max-content;
+        }
+
+    </style>
 </head>
 <body>
- <div class="calculator">
-        <div class="calculator__display">0</div>
-        <div class="calculator__keys">
-            <button class="key--operator" data-action="add">+</button>
-            <button class="key--operator" data-action="subtract">-</button>
-            <button class="key--operator" data-action="multiply">&times;</button>
-            <button class="key--operator" data-action="divide">÷</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button class="key--equal" data-action="calculate">=</button>
-            <button>5</button>
-            <button>6</button>
-            <button>4</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>0</button>
-            <button data-action="decimal">.</button>
-            <button data-action="clear">AC</button>
-        </div>
+
+<br>
+
+<div class="btn-container">
+    <p id="display" class="display" > </p>
+    <div class="btn-row-1">
+        <button class="btn btn-numb" data-number="1"> 1 </button>
+        <button class="btn btn-numb" data-number="2"> 2 </button>
+        <button class="btn btn-numb" data-number="3"> 3 </button>
+        <button class="btn btn-opr" data-operator="-"> - </button>
     </div>
+    <div class="btn-row-2">
+        <button class="btn btn-numb" data-number="4"> 4 </button>
+        <button class="btn btn-numb" data-number="5"> 5 </button>
+        <button class="btn btn-numb" data-number="6" > 6 </button>
+        <button class="btn btn-opr" data-operator="*"> &times; </button>
+    </div>
+    <div class="btn-row-3">
+        <button class="btn btn-numb" data-number="7" > 7 </button>
+        <button class="btn btn-numb" data-number="8"> 8 </button>
+        <button class="btn btn-numb" data-number="9"> 9 </button>
+        <button class="btn btn-opr" data-operator="/"> &divide; </button>
+    </div>
+    <div class="btn-row-4">
+        <button class="btn btn-clear" > C </button>
+        <button class="btn btn-numb" data-number="0"> 0 </button>
+        <button class="btn btn-equal" > = </button>
+        <button class="btn btn-opr" data-operator="+"> + </button>
+    </div>
+</div>
+<br>
+
 <script>
-    const calculator = document.querySelector('.calculator');
-    const keys = calculator.querySelector('.calculator__keys');
+    $(document).ready(function (){
+        let a="";
+        let b="";
+        let opr="";
+        let result = 0;
+        $("[data-number]").each(function(){
+            $(this).on("click",function(){
+                let inputNumber = $(this).attr("data-number");
+                if ((a === "") || (opr=== "")) {
+                    a = String(a) + inputNumber;
+                    console.log(a);
+                }
+                else {
+                    b = String(b) + inputNumber;
+                    console.log(b);
+                }
+                $(".display").append(inputNumber);
+            });
+        });
+//  Tính toán khi nhấn btn-operator
+        $("[data-operator]").each(function(){
+            $(this).on("click",function(){
+                let inputOper = $(this).attr("data-operator");
+                opr = inputOper;
+                console.log(inputOper);
+                $(".display").append(inputOper);
+            });
+        });
+        $('.btn-equal').on('click',function (){
+            a = parseFloat(a);
+            b = parseFloat(b);
+            switch (opr){
+                case "+":
+                    result=a+b;
+                    break;
+                case "-":
+                    result=a-b;
+                    break;
+                case "*":
+                    result=a*b;
+                    break;
+                case "/":
+                    result=a/b;
+                    break;
+            }
+            $(".display").html(result);
+            a=null;
+            b=null;
 
-    keys.addEventListener('click', e => {
-        if (e.target.matches('button')) {
-        }
-    })
-    const key= e.target;
-    const action= kay.dataset.action;
-    if ("!action"){
-        console.log("number key !")
+        });
+        $('.btn-clear').on('click',function (){
+            a="";
+            b="";
+            opr="";
+            result=0;
+            $(".display").html("");
+        });
 
-    }
-    if (
-        action === 'add' ||
-        action === 'subtract' ||
-        action === 'multiply' ||
-        action === 'divide'
-    ) {
-        console.log('operator key!')
-    }
-    if (action === 'decimal') {
-        console.log('decimal key!')
-    }
-
-    if (action === 'clear') {
-        console.log('clear key!')
-    }
-
-    if (action === 'calculate') {
-        console.log('equal key!')
-    }
-    const display = document.querySelector('.calculator__display')
-
-    keys.addEventListener('click', e => {
-        if (e.target.matches('button')) {
-            const key = e.target
-            const action = key.dataset.action
-            const keyContent = key.textContent
-            const displayedNum = display.textContent
-            // ...
-        }
-    })
-
+    });
 </script>
 </body>
 </html>

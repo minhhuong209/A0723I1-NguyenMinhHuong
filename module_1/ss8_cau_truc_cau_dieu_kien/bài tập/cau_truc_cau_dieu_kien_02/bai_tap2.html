@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> m to feet</title>
+    <style>
+        *{
+            margin: .5em;
+        }
+        .label{
+            display: inline-block;
+            min-width: 200px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<label class="label">Nhập chiều dài theo mét : </label>
+<input type="number" id="met" onkeydown="keypress(event)">
+<br>
+<button onclick="Equal()"> Chuyển đổi sang Feet </button>
+<br>
+<label class="label"> Chiều dài theo feet : </label>
+<span id="equal"></span>
+<script>
+    function Equal(){
+        let lengthM = parseInt(document.getElementById("met").value);
+        let lengthF = lengthM*3.2808;
+        document.getElementById("equal").innerText= lengthF + " ft";
+    }
+    /// enter để tính
+    function keypress(e){
+        if (e.keyCode===13) {
+            Equal();
+        }
+    }
+
+</script>
+</body>
+</html>

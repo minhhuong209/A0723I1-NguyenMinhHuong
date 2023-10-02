@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính hoa hồng theo doanh số</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        *{
+            margin: .5em;
+        }
+        .label{
+            font-weight: bold;
+            display: inline-block;
+            min-width: 150px
+        }
+    </style>
+</head>
+<body>
+<label class="label"> Nhập doanh số bán hàng của bạn ($) : </label>
+<input type="number" id="a">
+<br>
+<button onclick="check()"> Check !</button>
+<br>
+<label class="label"></label>
+<span id="result"></span>
+<script>
+    function check(){
+        let a = parseFloat($("#a").val());
+
+        if (a >=2000 ){
+            tyLe = 20;
+        }
+        else if (a >=1500){
+            tyLe = 15;
+        }
+        else if (a >=1000){
+            tyLe = 10;
+        }
+        else  tyLe=5;
+        $('#result').html("Tỷ lệ hoa hồng của bạn là : " +tyLe+ " % , hoa hồng nhận được là " + (a*tyLe)/100 +"$");
+    }
+</script>
+</body>
+</html>
+</body>
+</html>

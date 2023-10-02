@@ -1,0 +1,46 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính cước điện thoại</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        *{
+            margin: .5em;
+        }
+        .label{
+            font-weight: bold;
+            display: inline-block;
+            min-width: 150px
+        }
+    </style>
+</head>
+<body>
+<label class="label"> Nhập số phút gọi trong 1 tháng (min): </label>
+<input type="number" id="a">
+<br>
+<button onclick="check()"> Check !</button>
+<br>
+<span id="result"></span>
+<script>
+    function check(){
+        let bac1 = 3000; // <50p
+        let bac2 = 2500; //50<x<=100
+        let bac3 = 2000; //100<x<=300
+        let bac4 = 1000;// >300
+        let callMin = parseFloat($("#a").val());
+        let cost = 0;
+        if (callMin<=50) {
+            cost = callMin * bac1;}
+        else if (callMin<=100) {
+            cost= 50*bac1+(callMin-50)*bac2}
+        else if (callMin<=300) {
+            cost = 50 * bac1 + 50 * bac2 + (callMin - 100) * bac3; }
+        else {
+            cost = 50 * bac1 + 50 * bac2 + 200 * bac3 + (callMin-300)* bac4;
+        }
+        $('#result').html("Tiền cước điện thoại (chưa VAT): " + cost +" VNĐ");
+    }
+</script>
+</body>
+</html>

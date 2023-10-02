@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Celsius to Fahrenheit</title>
+    <style>
+        *{
+            margin: .5em;
+        }
+        .label{
+            display: inline-block;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<label class="label">Nhiệt độ theo độ C: </label>
+<input type="number" id="celsius" onkeydown="keypress(event)">
+<br>
+<button onclick="Equal()"> Chuyển đổi sang độ F </button>
+<br>
+<label class="label"> Nhiệt độ theo Fahrenheit : </label>
+<span id="equal"></span>
+<script>
+    function Equal(){
+        let cel = parseInt(document.getElementById("celsius").value);
+        let equal = (cel*9/5)+32;
+        document.getElementById("equal").innerText= equal;
+    }
+    function keypress(e){
+        console.log(e.keyCode)
+        if (e.keyCode===13) {
+            Equal();
+        }
+    }
+
+</script>
+</body>
+</html>
