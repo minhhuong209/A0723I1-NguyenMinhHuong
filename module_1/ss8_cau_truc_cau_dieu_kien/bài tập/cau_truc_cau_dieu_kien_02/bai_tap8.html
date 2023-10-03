@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra tuổi phù hợp</title>
+</head>
+<body>
+<label><input id="age" type="number" value="age" placeholder="Hây nhập tuổi"></label>
+<button onclick="kiemTra()">KiemTra</button>
+<p id="Result">Result:</p>
+<script>
+    function kiemTra() {
+        let age=+document.getElementById("age").value ;
+        let Result ;
+        if (age>0 && age<120) {
+            Result = "ban da nhap do tuoi  phu hop" ;
+        } else {
+            Result ="ban da nhap do tuoi khong phu hop .xin moi ban nhap lai"
+        }
+        document.getElementById("Result").innerHTML ="Result: " + Result ;
+    }
+</script>
+
+</script>
+</body>
+</html>
