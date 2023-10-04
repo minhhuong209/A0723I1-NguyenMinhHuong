@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In hình chữ nhật</title>
+</head>
+<body>
+<script>
+    function drawRectangle(height, width) {
+        for (let i = 1; i <= height; i++) {
+
+            for (let j = 1; j <= width; j++) {
+                if (i === 1 || i === height || j === 1 || j === width) {
+                    document.write("*");
+                } else {
+                    document.write(" ");
+                }
+            }
+            document.write("<br>");
+        }
+    }
+
+    drawRectangle(5, 8);
+</script>
+</body>
+</html>
