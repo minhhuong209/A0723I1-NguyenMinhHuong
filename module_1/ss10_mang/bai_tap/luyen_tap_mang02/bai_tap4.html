@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+ <script>
+     function demsotutrongchuoi (chuoi) {
+         let cactu =chuoi.split("");
+         let sotu = cactu.length;
+         return sotu;
+     }
+       let chuoi=prompt("nhập chuổi vào đây:");
+     let sotu= demsotutrongchuoi(chuoi);
+
+     document.write("số đã cho là :",chuoi+ "<br>" );
+
+     document.write("số từ trong chuổi là :" + sotu);
+
+
+ </script>
 </body>
 </html>
