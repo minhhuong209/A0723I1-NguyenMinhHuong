@@ -5,6 +5,25 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+  let num = ['a','b','c','d','e'];
+  let sum=['g','h','j','a','k'];
+  let isEqual;
+  if(num.length !== sum.length) {
+      isEqual = false;
+  }
+  else
+  {
+      for (let i = 0; i < num.length; i++) {
+          if(num[i] !== sum[i]) {
+              isEqual = false;
+              break;
+          }
+          isEqual = true;
+      }
+  }
+ document.write(isEqual);
 
+</script>
 </body>
 </html>
