@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let input = parseInt(prompt("nhap so phan tu cua mang: "));
+  let arr=[];
+
+  for (let i=0; i<input; i++) {
+    arr[i] = parseInt(prompt("nhap phan tu thu "+i));
+  }
+
+  let inputNumber = parseInt( prompt("Nhập V cần kiểm tra :") );
+  let index=arr.indexOf(inputNumber);
+
+  if (index!==-1){
+    for (let i=index; i<arr.length-1; i++){
+      arr[i]=arr[i+1];
+    }
+    arr[arr.length-1]=0;
+    document.writeln("mảng sau khi xóa V: "+arr);
+  }else {
+    document.writeln("V không thuộc mảng")
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let input = parseInt(prompt("nhap so phan tu: "));
+    let arr=[];
+
+    for (let i=0; i< input; i++) {
+        arr[i] = parseInt(prompt("nhap so phan tu thu "+i));
+    }
+
+    let inputNumber = parseInt(prompt("Nhập số cần kiểm tra :"));
+
+    if (arr.includes(inputNumber)){
+        document.writeln("V is in the array");
+    }else {
+        document.writeln("V not is in the array")
+    }
+
+</script>
+</body>
+</html>
