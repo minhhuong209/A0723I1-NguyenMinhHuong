@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<canvas id="DemoCanvas" width="500" height="600"></canvas>
+<script>
+    let canvas = document.getElementById("DemoCanvas");
+    if (canvas.getContext)
+    {
+        let ctx = canvas.getContext('2d');
+        ctx.lineWidth = "3";
+        ctx.strokeStyle = "width";
+        ctx.strokeRect(5, 5, 300, 250);
+
+    }
+</script>
 </body>
 </html>

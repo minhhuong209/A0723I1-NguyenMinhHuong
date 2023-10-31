@@ -1,10 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<label for="message">Compose message</label>
+<input type="text" id="message" placeholder="Type your message">
+<button id="sendButton">Send message</button>
+<div id="inbox"></div>
+
+<script>
+
+    class Mobile {
+        constructor() {
+            this.battery = 100;
+            this.isPhoneOn = false;
+            this.draftMessage = '';
+            this.inbox = [];
+            this.sentMessages = [];
+        }
+
+        checkPhoneStatus() {
+            return this.isPhoneOn;
+        }
+
+        turnOn() {
+            this.isPhoneOn = true;
+        }
+
+        turnOff() {
+            this.isPhoneOn = false;
+        }
+
+        chargeBattery() {
+            if (this.isPhoneOn) {
+                this.battery = 100;
+            }
+        }
+
+        composeMessage(message) {
+            if (this.isPhoneOn) {
+                this.draftMessage = message;
+                this.battery--;
+            }
+        }
+
+        receiveMessage(message) {
+            if (this.isPhoneOn) {
+                this.inbox.push(message);
+                this.battery--;
+            }
+        }
+
+        sendMessage(receiver, message) {
+            if (this.isPhoneOn && this.battery > 0) {
+                this.sentMessages.push(message);
+                receiver.receiveMessage(message);
+                this.battery--;
+            }
+        }
+
+        viewInbox() {
+            if (this.isPhoneOn) {
+                return this.inbox;
+            }
+        }
+
+        viewSentMessages() {
+            if (this.isPhoneOn) {
+                return this.sentMessages;
+            }
+        }
+    }
+
+
+    const nokia = new Mobile();
+    const iphone = new Mobile();
+
+    nokia.turnOn();
+    iphone.turnOn();
+
+
+    nokia.composeMessage("Nokia says hello !");
+    nokia.sendMessage(iphone, nokia.draftMessage);
+
+
+    const iphoneInbox = iphone.viewInbox();
+    if (iphoneInbox.length > 0) {
+        console.log("Inbox of iPhone:", iphoneInbox);
+    } else {
+        console.log("No new messages in iPhone's inbox.");
+    }
+    function displayInboxMessages() {
+        const iphoneInbox = iphone.viewInbox();
+        const inboxElement = document.getElementById("inbox");
+        inboxElement.innerHTML = "Inbox of iphone:<br>";
+        if (iphoneInbox.length > 0) {
+            for (let i =0; i < iphoneInbox.length;i++) {
+                inboxElement.innerHTML += iphoneInbox[i] + "<br>";
+            }
+        } else {
+            inboxElement.innerHTML += "No new message in inbox.";
+        }
+    }
+    function sendMessage() {
+        const message = document.getElementById("message").value;
+        nokia.composeMessage(message);
+        nokia.sendMessage(iphone, nokia.draftMessage);
+        document.getElementById("message").value = "";
+        displayInboxMessages();
+
+    }
+    const sendButton = document.getElementById("sendButton");
+    sendButton.addEventListener("click", sendMessage);
+    displayInboxMessages();
+</script>
 </body>
 </html>

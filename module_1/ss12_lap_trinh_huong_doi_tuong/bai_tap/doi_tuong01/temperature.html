@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    function Temperature(Celsius) {
+        this.celsius = Celsius;
+        this.changeCInToF = ()=>{
+            return 9/5*this.celsius + 32;
+        }
+        this.changeCIntoK = ()=>{
+            return this.celsius + 273.15;
+        }
+    }
+    let temp = new Temperature(25);
+    document.write(`Độ F = ${temp.changeCInToF()} <br> Độ K = ${temp.changeCIntoK()}`)
+    console.log(temp.changeCInToF(), temp.changeCIntoK());
+
+</script>
 </body>
 </html>
