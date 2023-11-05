@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xắp sếp các phần tử trong mảng</title>
+</head>
+<body>
+<script>
+    function missingValue(A, B) {
+        let set_A = new Set(A);
+        let set_B = new Set(B);
+        let result = new Set();
+
+        for (let num of set_B) {
+            if (!set_A.has(num)) {
+                result.add(num);
+            }
+        }
+
+        return Array.from(result);
+    }
+
+    let A = [6, 2, 5, 3, 5, 3,9];
+    let B = [7, 2, 5, 4, 6, 3, 5, 3,8,10,100];
+
+    document.write(missingValue(A,B));
+</script>
+</body>
+</html>

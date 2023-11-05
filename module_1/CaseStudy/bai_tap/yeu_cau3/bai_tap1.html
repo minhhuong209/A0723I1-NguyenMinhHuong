@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xây dựng mảng</title>
+</head>
+<body>
+ <script>
+     function prefixSum(a) {
+         let n = a.length;
+         let b = new Array(n);
+         b[0]= a[0];
+         for (let i=1;i<n;i++){
+             b[i]=b[i-1]+a[i];
+
+         }
+         return b;
+     }
+     let a = [3, 4, 5];
+    let b = prefixSum(a);
+     document.write(b);
+
+ </script>
+</body>
+</html>

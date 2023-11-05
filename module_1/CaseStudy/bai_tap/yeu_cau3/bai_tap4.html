@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu đồ uống</title>
+</head>
+<body>
+<div id="results"></div>
+
+<script>
+    function hienThiDanhSach() {
+        let danhSach = "<h3>Menu:</h3>";
+        danhSach += "<p>1. Cafe  (10000đ) </p>";
+        danhSach += "<p>2. Cam vắt (15000đ) </p>";
+        danhSach += "<p>3. Nước ép cà rốt (20000đ) </p>";
+        danhSach += "<p>4. Nước ép cà chua (1800đ) </p>";
+        danhSach += "<p>5. Nước lọc (5000đ) </p>";
+        danhSach += "<p>6. Nước dừa (25000đ) </p>";
+        danhSach += "<p>7. Thoát gọi món</p>";
+
+        document.getElementById("results").innerHTML = danhSach;
+    }
+
+    function tinhTien(tenMon, donGia, soLuong) {
+        let thanhTien = donGia * soLuong;
+        let ketQua = "";
+        ketQua += "<p>Bạn đã chọn " + tenMon + "</p>";
+        ketQua += "<p>Đơn giá: " + donGia + " đồng</p>";
+        ketQua += "<p>Số lượng: " + soLuong + "</p>";
+        ketQua += "<p>Tổng số tiền cần thanh toán: " + thanhTien + " đồng</p>";
+
+        document.getElementById("results").innerHTML = ketQua;
+
+    }
+
+    function goiThucUong() {
+        let tiepTuc = true;
+        let luaChon;
+        let soLuong;
+
+        while (tiepTuc) {
+            hienThiDanhSach();
+            luaChon = parseInt(prompt("Vui lòng chọn một thức uống (nhập số từ 1 đến 7):"));
+
+            switch (luaChon) {
+                case 1:
+                    soLuong = parseInt(prompt("Nhập số lượng cafe:"));
+                    tinhTien("Cafe", 10000, soLuong);
+                    break;
+                case 2:
+                    soLuong = parseInt(prompt("Nhập số lượng cam vắt:"));
+                    tinhTien("Cam vắt", 15000, soLuong);
+                    break;
+                case 3:
+                    soLuong = parseInt(prompt("Nhập số lượng nước ép cà rốt:"));
+                    tinhTien("Nước ép cà rốt", 20000, soLuong);
+                    break;
+                case 4:
+                    soLuong = parseInt(prompt("Nhập số lượng nước ép cà chua:"));
+                    tinhTien("Nước ép cà chua", 18000, soLuong);
+                    break;
+                case 5:
+                    soLuong = parseInt(prompt("Nhập số lượng nước lọc:"));
+                    tinhTien("Nước lọc", 5000, soLuong);
+                    break;
+                case 6:
+                    soLuong = parseInt(prompt("Nhập số lượng nước dừa:"));
+                    tinhTien("Nước dừa", 25000, soLuong);
+                    break;
+                case 7:
+                    tiepTuc = false;
+                    break;
+                default:
+                    document.getElementById("results").innerHTML = "Lựa chọn không hợp lệ. Vui lòng chọn lại!";
+                    break;
+            }
+        }
+    }
+
+    goiThucUong();
+</script>
+</body>
+</html>

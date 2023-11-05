@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách các phân số</title>
+</head>
+<body>
+<script>
+    function maxFraction(numerators, denominators) {
+        let maxIndex = 0;
+        let maxFraction = numerators[0] / denominators[0];
+
+        for (let i = 1; i < numerators.length; i++) {
+            let fraction = numerators[i] / denominators[i];
+            if (fraction > maxFraction) {
+                maxFraction = fraction;
+                maxIndex = i;
+            }
+        }
+
+        return maxIndex;
+    }
+    let numerators = [3, 5, 7,9,];
+    let denominators = [2, 3, 6,9];
+    document.write(maxFraction(numerators, denominators));
+
+</script>
+</body>
+</html>
