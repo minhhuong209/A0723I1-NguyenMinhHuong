@@ -6,7 +6,7 @@
 </head>
 <body>
 <div id="results"></div>
-
+<button type="button" onclick="goiThucUong()">Goi thuc uong</button>
 <script>
     function hienThiDanhSach() {
         let danhSach = "<h3>Menu:</h3>";
@@ -19,7 +19,9 @@
         danhSach += "<p>7. Thoát gọi món</p>";
         document.getElementById("results").innerHTML = danhSach;
     }
-    function tinhTien(tenMon, donGia, soLuong) {
+    hienThiDanhSach();
+
+    function tinhTien(tenMon, donGia, soLuong) {debugger
         let thanhTien = donGia * soLuong;
         let ketQua = "";
         ketQua += "<p>Bạn đã chọn " + tenMon + "</p>";
@@ -34,7 +36,6 @@
         let luaChon;
         let soLuong;
         while (tiepTuc) {
-            hienThiDanhSach();
             luaChon = parseInt(prompt("Vui lòng chọn một thức uống (nhập số từ 1 đến 7):"));
             switch (luaChon) {
                 case 1:
@@ -70,8 +71,6 @@
             }
         }
     }
-
-    goiThucUong();
 </script>
 </body>
 </html>
