@@ -17,10 +17,8 @@
         danhSach += "<p>5. Nước lọc (5000đ) </p>";
         danhSach += "<p>6. Nước dừa (25000đ) </p>";
         danhSach += "<p>7. Thoát gọi món</p>";
-
         document.getElementById("results").innerHTML = danhSach;
     }
-
     function tinhTien(tenMon, donGia, soLuong) {
         let thanhTien = donGia * soLuong;
         let ketQua = "";
@@ -28,20 +26,16 @@
         ketQua += "<p>Đơn giá: " + donGia + " đồng</p>";
         ketQua += "<p>Số lượng: " + soLuong + "</p>";
         ketQua += "<p>Tổng số tiền cần thanh toán: " + thanhTien + " đồng</p>";
-
         document.getElementById("results").innerHTML = ketQua;
-
     }
 
     function goiThucUong() {
         let tiepTuc = true;
         let luaChon;
         let soLuong;
-
         while (tiepTuc) {
             hienThiDanhSach();
             luaChon = parseInt(prompt("Vui lòng chọn một thức uống (nhập số từ 1 đến 7):"));
-
             switch (luaChon) {
                 case 1:
                     soLuong = parseInt(prompt("Nhập số lượng cafe:"));

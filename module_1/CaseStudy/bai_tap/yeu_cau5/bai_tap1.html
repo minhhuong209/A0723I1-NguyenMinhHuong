@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết hàm tính tổng</title>
+</head>
+<body>
+<script>
+    function tinhTongChan(m, n) {
+        let matrix = [];
+        for (let i = 0; i < m; i++) {
+            let row = [];
+            for (let j = 0; j < n; j++) {
+                let num = parseInt(prompt(`Nhập giá trị cho phần tử matrix[${i}][${j}]:`));
+                row.push(num);
+            }
+            matrix.push(row);
+        }
+        let tongChan = 0;
+        for (let i = 0; i < m; i++) {
+            for (let j = 0; j < n; j++) {
+                if (matrix[i][j] % 2 === 0) {
+                    tongChan += matrix[i][j];
+                }
+            }
+        }
+        return tongChan;
+    }
+    let m = parseInt(prompt("Nhập số hàng m:"));
+    let n = parseInt(prompt("Nhập số cột n:"));
+    let tong = tinhTongChan(m, n);
+  document.write("Tổng các số chẵn trong ma trận là:",tong);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm ký tự chung </title>
+</head>
+<body>
+<script>
+    function commonCharacterCount(s,a) {
+        let count = 0;
+        let freq1 = {};
+        let freq2 = {};
+        for (let i = 0; i < s.length; i++) {
+            if (freq1[s[i]] === undefined) {
+                freq1[s[i]] = 1;
+            } else {
+                freq1[s[i]]++;
+            }
+        }
+        for (let i = 0; i < a.length; i++) {
+            if (freq2[a[i]] === undefined) {
+                freq2[a[i]] = 1;
+            } else {
+                freq2[a[i]]++;
+            }
+            if (freq1[a[i]] !== undefined && freq1[a[i]] > 0) {
+                count++;
+                freq1[a[i]]--;
+            }
+        }
+        return count;
+    }
+    let s = "bbdaa";
+    let a = "bcaac";
+    document.write(commonCharacterCount(s,a));
+
+</script>
+</body>
+</html>

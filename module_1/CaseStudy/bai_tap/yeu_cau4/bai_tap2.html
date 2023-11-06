@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ký tự khách nhau trong xâu ký </title>
+</head>
+<body>
+<script>
+    function differentSymbolsNaive(s) {
+      let uniqueChars = {};
+        for (let i = 0; i < s.length; i++) {
+            uniqueChars[s[i]] = true;
+        }
+        return Object.keys(uniqueChars).length;
+    }
+
+   let s = "xinchaocacban";
+    let count = differentSymbolsNaive(s);
+   document.write(count);
+
+</script>
+</body>
+</html>

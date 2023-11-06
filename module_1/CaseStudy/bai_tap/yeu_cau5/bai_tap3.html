@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function findMaxMinEquation(arr) {
+        let maxEquation = arr[0][0];
+        let minEquation = arr[0][0];
+
+        for (let row of arr) {
+            for (let num of row) {
+                if (num > maxEquation) {
+                    maxEquation = num;
+                }
+                if (num < minEquation) {
+                    minEquation = num;
+                }
+            }
+        }
+        return [maxEquation, minEquation];
+    }
+    const array = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+    const [maxEquation, minEquation] = findMaxMinEquation(array);
+    document.write("Phương trình lớn nhất:", maxEquation);
+    document.write("<br>");
+    document.write("Phương trình nhỏ nhất:", minEquation);
+
+</script>
+</body>
+</html>
